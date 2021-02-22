@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window size="1200,800" sizebox="4,4,6,6" caption="0,0,0,40" mininfo="1370,870">
+  <Font id="0" name="微软雅黑" size="14"/>
+  <Font id="1" name="微软雅黑" size="21"/>
+  <Font id="2" name="微软雅黑" size="16"/>
+  <Font id="3" name="微软雅黑" size="24"/>
+  <Font id="4" name="微软雅黑" size="18"/>
+  <Font id="5" name="微软雅黑" size="27"/>
+  <Font id="6" name="微软雅黑" size="12"/>
+  <Font id="7" name="微软雅黑" size="18"/>
+  <Font id="8" name="微软雅黑" size="14" shared="true" />
+  <HorizontalLayout name="body" bkcolor="#FFCCCCCC">
+
+  	<VerticalLayout>
+  		<!--标题栏-->
+  		<HorizontalLayout name="top_hlayout" bkcolor="#FFF2F3F5" height="40" padding="0,0,0,1">
+  			<!--logo、名称-->
+  			<HorizontalLayout bkcolor="#FFF5F3F2" name="logo_vlayout" width="220">
+  				<Text name="logo" font="2" text="测试性Duilib" textpadding="5,8,0,0" textcolor="#FF363739" mouse="false"/>
+  			</HorizontalLayout>
+  			<!--标签、按钮-->
+  			<HorizontalLayout>
+  				<!--按钮（隐藏、后退、前进、刷新）-->
+  				<HorizontalLayout name="tool_bar" width="160" padding="0,1,0,0">
+					<Text font="2" text="|" textpadding="0,7,0,0" textcolor="#FF363739" mouse="false"/>
+  					<Button name="tool_sidebar" tooltip="显示/隐藏"    float="true" pos="20,12,32,26"   normalimage="toolbar/fold_normal.png" />
+  					<Button name="tool_back"     tooltip="点击可后退"   float="true" pos="40,8,64,32"   normalimage="toolbar/back-normal.png"    hotimage="toolbar/back-hover.png"       pushedimage="toolbar/back-pushed.png"    disabledimage="toolbar/back-disable.png" />
+  					<Button name="tool_forward"  tooltip="点击可前进"   float="true" pos="72,8,96,32"   normalimage="toolbar/forward-normal.png" hotimage="toolbar/forward-hover.png"    pushedimage="toolbar/forward-pushed.png" disabledimage="toolbar/forward-disable.png" />
+  					<Button name="tool_refresh"  tooltip="重新加载此页" float="true" pos="104,8,128,32" normalimage="toolbar/refresh-normal.png" hotimage="toolbar/refresh-hover.png"    pushedimage="toolbar/refresh-pushed.png" disabledimage="toolbar/refresh-disable.png" />
+  					<Button name="tool_load" tooltip="停止加载此页" float="true" pos="104,8,128,32" normalimage="toolbar/load-normal.png" disabledimage="toolbar/load-disable.png" visible="false" />
+					<Text font="2" text="|" float="true" pos="136,0,140,40" textpadding="0,7,0,0" textcolor="#FF363739" mouse="false"/>
+  				</HorizontalLayout>
+					
+  				<!--标签页-->
+  				<HorizontalLayout name="Tabstrip">
+					<TabLayout name="ContentTab" bkcolor="#FF00FFFF">
+						<TabLayout name="ContentTab1" bkcolor="#FFFFFFFF">
+							<HorizontalLayout name="Tabstrip1"/>
+						</TabLayout>
+						<TabLayout name="ContentTab2" bkcolor="#FF00FFFF">
+							<HorizontalLayout name="Tabstrip2"/>
+						</TabLayout>
+						<TabLayout name="ContentTab3" bkcolor="#FFFF00FF">
+							<HorizontalLayout name="Tabstrip3"/>
+						</TabLayout>
+					</TabLayout>
+					<Button name="Add1" text="Add1" bkcolor="#FFFF0000"/>
+				</HorizontalLayout>
+				
+  				<!--新增标签按钮-->
+  				<HorizontalLayout visible="false">
+  					<VerticalLayout width="25" padding="7,7,7,7" >
+  						<Button name="NewTabButton" height="25" normalimage="toolbar/new_tab_normal.png" hotimage="toolbar/new_tab_hover.png" pushedimage="toolbar/new_tab_hover.png"/>
+  					</VerticalLayout>
+  				</HorizontalLayout>
+				
+  				<!--系统按钮（最小化、最大化、关闭）-->
+  				<HorizontalLayout name="close_hlayout" width="110">
+  					<Button name="minbtn"     normalimage="file='sysbtn/min-normal.png' dest = '5,9,29,33'"     hotimage="file='sysbtn/min-hover.png' dest = '5,9,29,33'"     pushedimage="file='sysbtn/min-pushed.png' dest = '5,9,29,33'" />
+  					<Button name="maxbtn"     normalimage="file='sysbtn/max-normal.png' dest = '5,9,29,33'"     hotimage="file='sysbtn/max-hover.png' dest = '5,9,29,33'"     pushedimage="file='sysbtn/max-pushed.png' dest = '5,9,29,33'" />
+  					<Button name="restorebtn" normalimage="file='sysbtn/restore-normal.png' dest = '5,9,29,33'" hotimage="file='sysbtn/restore-hover.png' dest = '5,9,29,33'" pushedimage="file='sysbtn/restore-pushed.png' dest = '5,9,29,33'" visible="false" />
+  					<Button name="closebtn"   normalimage="file='sysbtn/close-normal.png' dest = '5,9,29,33'"   hotimage="file='sysbtn/close-hover.png' dest = '5,9,29,33'"   pushedimage="file='sysbtn/close-pushed.png' dest = '5,9,29,33'" />
+  				</HorizontalLayout>
+  			</HorizontalLayout>			
+  		</HorizontalLayout>
+		
+		<!--主体区域（侧边栏+浏览器区域）-->
+		<HorizontalLayout name="bottom_hlayout" padding="0,0,0,1">
+			<!--侧边栏-->
+			<VerticalLayout name="side_vlayout" bkcolor="#E5ECF4" width="220" padding="7,7,7,7" >
+				<Button name="explore" pos="38,14,192,44" width="227" height="30" text="打开浏览器页面" />
+				<Button name="personalinfo" pos="38,14,192,44" width="227" height="30"  text="个人信息" />
+				<Button name="modifypassword" pos="38,14,192,44" width="227" height="30"  text="修改密码" />
+  			</VerticalLayout>
+			<!--主体区域-->
+			<HorizontalLayout name="exp_hlayout" padding="0,0,0,1">
+				<!--浏览器预留-->
+				<VerticalLayout name="explore_vlayout" padding="7,7,7,7" >
+					<VerticalLayout>
+                            <TabLayout name="Content">
+                                <TabLayout name="ContentView1" bkcolor="#0FFFFF0F"  />
+								<TabLayout name="ContentView2" bkcolor="#FF00FFFF"  />
+								<TabLayout name="ContentView3" bkcolor="#FFFF00FF"  />
+								<TabLayout name="ContentView4" bkcolor="#FFFFFF00"  />
+                            </TabLayout>
+                      </VerticalLayout>
+				</VerticalLayout>
+				
+				<!--个人信息-->
+				<!--VerticalLayout name="personalinfo_vlayout" padding="7,7,7,7" >
+				</VerticalLayout>
+				
+				<!--修改密码-->
+				<!--<VerticalLayout name="modifypassword_vlayout" padding="7,7,7,7" >-->
+				<!--/VerticalLayout-->
+				
+			</HorizontalLayout>	
+		</HorizontalLayout>
+  	</VerticalLayout>
+  </HorizontalLayout>
+</Window>
