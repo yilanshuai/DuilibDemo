@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Window size="1200,800" sizebox="4,4,6,6" caption="0,0,0,40" mininfo="1370,870">
+<Window size="1600,800" sizebox="4,4,6,6" caption="0,0,0,40" mininfo="1370,870">
   <Font id="0" name="微软雅黑" size="14"/>
   <Font id="1" name="微软雅黑" size="21"/>
   <Font id="2" name="微软雅黑" size="16"/>
@@ -16,7 +16,7 @@
   		<HorizontalLayout name="top_hlayout" bkcolor="#FFF2F3F5" height="40" padding="0,0,0,1">
   			<!--logo、名称-->
   			<HorizontalLayout bkcolor="#FFF5F3F2" name="logo_vlayout" width="220">
-  				<Text name="logo" font="2" text="测试性Duilib" textpadding="5,8,0,0" textcolor="#FF363739" mouse="false"/>
+  				<Text name="logo" font="2" text="DuilibDemo" textpadding="5,8,0,0" textcolor="#FF363739" mouse="false"/>
   			</HorizontalLayout>
   			<!--标签、按钮-->
   			<HorizontalLayout>
@@ -33,26 +33,21 @@
 					
   				<!--标签页-->
   				<HorizontalLayout name="Tabstrip">
-					<TabLayout name="ContentTab" bkcolor="#FF00FFFF">
+					<TabLayout name="ContentTab" >
 						<TabLayout name="ContentTab1" bkcolor="#FFFFFFFF">
 							<HorizontalLayout name="Tabstrip1"/>
 						</TabLayout>
-						<TabLayout name="ContentTab2" bkcolor="#FF00FFFF">
+						<TabLayout name="ContentTab2" bkcolor="#FFC0BFCF">
 							<HorizontalLayout name="Tabstrip2"/>
 						</TabLayout>
-						<TabLayout name="ContentTab3" bkcolor="#FFFF00FF">
+						<TabLayout name="ContentTab3" bkcolor="#FFBCBCBC">
 							<HorizontalLayout name="Tabstrip3"/>
 						</TabLayout>
 					</TabLayout>
-					<Button name="Add1" text="Add1" bkcolor="#FFFF0000"/>
+					
+					<!--新增标签按钮-->
+					<Button name="NewTabButton" width="36" visible="true" normalimage="toolbar/new_tab_normal.png" hotimage="toolbar/new_tab_hover.png" pushedimage="toolbar/new_tab_hover.png"/>
 				</HorizontalLayout>
-				
-  				<!--新增标签按钮-->
-  				<HorizontalLayout visible="false">
-  					<VerticalLayout width="25" padding="7,7,7,7" >
-  						<Button name="NewTabButton" height="25" normalimage="toolbar/new_tab_normal.png" hotimage="toolbar/new_tab_hover.png" pushedimage="toolbar/new_tab_hover.png"/>
-  					</VerticalLayout>
-  				</HorizontalLayout>
 				
   				<!--系统按钮（最小化、最大化、关闭）-->
   				<HorizontalLayout name="close_hlayout" width="110">
@@ -68,9 +63,9 @@
 		<HorizontalLayout name="bottom_hlayout" padding="0,0,0,1">
 			<!--侧边栏-->
 			<VerticalLayout name="side_vlayout" bkcolor="#E5ECF4" width="220" padding="7,7,7,7" >
-				<Button name="explore" pos="38,14,192,44" width="227" height="30" text="打开浏览器页面" />
-				<Button name="personalinfo" pos="38,14,192,44" width="227" height="30"  text="个人信息" />
-				<Button name="modifypassword" pos="38,14,192,44" width="227" height="30"  text="修改密码" />
+				<Button name="homepageBtn" pos="38,14,192,44" width="227" height="30" text="我的主页" />
+				<Button name="personinfoBtn" pos="38,14,192,44" width="227" height="30"  text="个人信息" />
+				<Button name="modifypasswordBtn" pos="38,14,192,44" width="227" height="30"  text="修改密码" />
   			</VerticalLayout>
 			<!--主体区域-->
 			<HorizontalLayout name="exp_hlayout" padding="0,0,0,1">
@@ -78,22 +73,12 @@
 				<VerticalLayout name="explore_vlayout" padding="7,7,7,7" >
 					<VerticalLayout>
                             <TabLayout name="Content">
-                                <TabLayout name="ContentView1" bkcolor="#0FFFFF0F"  />
-								<TabLayout name="ContentView2" bkcolor="#FF00FFFF"  />
-								<TabLayout name="ContentView3" bkcolor="#FFFF00FF"  />
-								<TabLayout name="ContentView4" bkcolor="#FFFFFF00"  />
+                                <TabLayout name="ContentView1" bkcolor="#FFFFFFFF"  />
+								<TabLayout name="ContentView2" bkcolor="#FFC0BFCF"  />
+								<TabLayout name="ContentView3" bkcolor="#FFBCBCBC"  />
                             </TabLayout>
                       </VerticalLayout>
 				</VerticalLayout>
-				
-				<!--个人信息-->
-				<!--VerticalLayout name="personalinfo_vlayout" padding="7,7,7,7" >
-				</VerticalLayout>
-				
-				<!--修改密码-->
-				<!--<VerticalLayout name="modifypassword_vlayout" padding="7,7,7,7" >-->
-				<!--/VerticalLayout-->
-				
 			</HorizontalLayout>	
 		</HorizontalLayout>
   	</VerticalLayout>
