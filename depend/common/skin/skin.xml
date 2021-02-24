@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+
+<Window caption="0,0,0,50" mininfo="400,300" roundcorner="3,3" size="1000,700" sizebox="4,4,6,6" height="702" width="1000" >
+
+  <Font id="0" name="微软雅黑" size="12" default="true"/>
+  <Font id="1" name="微软雅黑" size="16"/>
+  <Font id="2" name="微软雅黑" size="22"/>
+  
+  <VerticalLayout name="MainWindow"  bkcolor="#FFE6E6DC">
+
+    <HorizontalLayout name="window-title" height="40" bkcolor="#FFE6E6DC" bkcolor2="#FFAAAAA0">
+
+      <VerticalLayout>
+        <Container />
+
+        <HorizontalLayout name="Tabstrip" height="30">
+          <!-- <Container maxwidth="174">
+            <ChildLayout xmlfile="tab.xml"/>  
+            <Include source="tab.xml" count="1" />  
+          </Container> -->
+
+          <VerticalLayout width="25">
+            <Control />
+            <Button name="NewTabButton" height="25" 
+              normalimage="file='toolbar/new_tab_normal.png'" 
+              hotimage="file='toolbar/new_tab_hover.png'" 
+              pushedimage="file='toolbar/new_tab_hover.png'"/>
+          </VerticalLayout>
+
+        </HorizontalLayout><!-- Tabstrip -->
+      </VerticalLayout><!-- Tabstrip Container -->
+
+      <VerticalLayout name="window-control" width="77"> 
+          <Button name="minbtn"  tooltip="最小化" float="true" pos="0,3,22,24"  width="23" 
+            normalimage=" file='SysBtn\MinNormal.bmp' " 
+            hotimage=" file='SysBtn\MinFocus.bmp' " 
+            pushedimage=" file='SysBtn\MinFocus.bmp' "/>
+          <Button name="maxbtn"   tooltip="最大化" float="true" pos="22,3,44,24" width="23" 
+            normalimage=" file='SysBtn\MaxNormal.bmp' " 
+            hotimage=" file='SysBtn\MaxFocus.bmp' " 
+            pushedimage=" file='SysBtn\MaxFocus.bmp' " />
+          <Button name="restorebtn" visible="false" tooltip="还原" float="true" pos="22,3,44,24" width="23" 
+            normalimage=" file='SysBtn\StoreNormal.bmp' " 
+            hotimage=" file='SysBtn\StoreFocus.bmp' " 
+            pushedimage=" file='SysBtn\StoreFocus.bmp' " />
+          <Button name="closebtn" tooltip="关闭"   float="true" pos="44,3,74,24" width="28" 
+            normalimage=" file='SysBtn\CloseNormal.bmp' " 
+            hotimage=" file='SysBtn\CloseFocus.bmp' " 
+            pushedimage=" file='SysBtn\CloseFocus.bmp' "/>
+      </VerticalLayout><!-- window-control -->
+    </HorizontalLayout>
+
+
+
+    <HorizontalLayout name="ToolbarFrame" height="40" inset="4,4,0,4" childpadding="4" bordercolor="#FF8E8E8E" bordersize="1">
+      <Button name="back-button" width="32" 
+        normalimage="file='toolbar/browser_back_normal.png'"
+        hotimage="file='toolbar/browser_back_hover.png'"
+        pushedimage="file='toolbar/browser_back_pressed.png'"
+        disabledimage="file='toolbar/browser_back_disabled.png'" />
+      <Button name="forward-button" width="32" 
+        normalimage="file='toolbar/browser_forward_normal.png'"
+        hotimage="file='toolbar/browser_forward_hover.png'"
+        pushedimage="file='toolbar/browser_forward_pressed.png'"
+        disabledimage="file='toolbar/browser_forward_disabled.png'" />
+      <Container width="32">
+        <Button name="reload-button" float="true" pos="0,0,32,32" 
+          normalimage="file='toolbar/browser_reload_normal.png'"
+          hotimage="file='toolbar/browser_reload_hover.png'"
+          pushedimage="file='toolbar/browser_reload_pressed.png'"
+          disabledimage="file='toolbar/browser_reload_disabled.png'" />
+        <Button name="stop-load-button" float="true" pos="0,0,32,32" visible="false"
+          normalimage="file='toolbar/browser_stop_normal.png'"
+          hotimage="file='toolbar/browser_stop_hover.png'"
+          pushedimage="file='toolbar/browser_stop_pressed.png'"
+          disabledimage="file='toolbar/browser_stop_disabled.png'" />
+      </Container>
+	  <HorizontalLayout bkcolor="FFFFFFFF" height="28" borderround="2,2">
+	  <!-- 
+       <Button name="btnCert" width="18" height="18" padding="6,5,1,1"
+			normalimage="file='toolbar/lock.png'"
+			hotimage="file='toolbar/lock.png'"
+			pushedimage="file='toolbar/lock_hover.png'"
+			disabledimage="file='toolbar/lock_diabled.png'"
+	   />
+
+	   <Label text="🔒 国密" width="28" height="28" textcolor="#FF008B00" disabledtextcolor="#FF2c2c2c" font="0"/>
+	  -->
+	  <Button name="btnCert" text="🔒安全" width="42" height="28" enabled="false" textcolor="#FF008B00" disabledtextcolor="#FFB0B0B0" 
+      />
+	  <Label text="|" width="4" height="28" textcolor="#FF000000" disabledtextcolor="#FFFFFFFF" font="0" align="center"/>
+	  <Edit name="location-edit" textcolor="#FF333333" bordersize="0" font="0"/>
+	  </HorizontalLayout>
+   
+    </HorizontalLayout><!-- ToolbarFrame -->
+
+    
+    
+    <HorizontalLayout name="ContentFrame">
+      <!-- <WebBrowser name="ie-0" homepage="http://baidu.com" autonavi="true" delaycreate="false"/>  -->
+      <TabLayout name="ContentView" >     
+      </TabLayout>
+    </HorizontalLayout><!-- ContentFrame -->
+    
+  </VerticalLayout>
+
+</Window>

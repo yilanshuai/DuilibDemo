@@ -71,14 +71,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Duilib\duilib\DuiLib;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Duilib\duilib\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\external\include\duilib;..\external\include\XBrowser;$(IncludePath)</IncludePath>
+    <LibraryPath>..\external\lib;$(LibraryPath);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>..\external\include\duilib;..\external\include\XBrowser;$(IncludePath)</IncludePath>
+    <LibraryPath>..\external\lib;$(LibraryPath);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

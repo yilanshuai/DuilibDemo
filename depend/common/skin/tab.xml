@@ -1,0 +1,22 @@
+
+<Container>
+              <VerticalLayout>
+                <Control />
+                <Option group="group1" height="30" font="0" textpadding="20,6,26,0" align="left" endellipsis="true" textcolor="#FF333333" disabledtextcolor="#FFA7A6AA" 
+                  hotimage="file='tabitem.png' source='174,0,348,30'"
+                  normalimage="file='tabitem.png' source='0,0,174,30'" 
+                  pushedimage="file='tabitem.png' source='348,0,522,30'"         
+                  selectedimage="file='tabitem.png' source='348,0,522,30'" />
+              </VerticalLayout>
+
+              <HorizontalLayout mouse="false" float="false" height="30" bkcolor="#00000000">
+                <Control mouse="false"/>
+                <Container width="25">
+                  <Button align="center" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" float="true" pos="0,13" width="9" height="9" 
+                    normalimage="file='toolbar/tab_close_normal.png'" 
+                    hotimage="file='toolbar/tab_close_hover.png'" 
+                    pushedimage="file='toolbar/tab_close_hover.png'" />
+                </Container>
+              </HorizontalLayout>
+            </Container>
+          </Container>

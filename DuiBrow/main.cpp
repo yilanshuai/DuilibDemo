@@ -6,18 +6,18 @@
 #include <list> 
 
 #pragma once
-#include "../DuiLib/UIlib.h"
+#include "UIlib.h"
 using namespace DuiLib;
 
 #ifdef _DEBUG
 #   ifdef _UNICODE
-#       pragma comment(lib, "DuiLib_ud.lib")
+#       pragma comment(lib, "DuiLib.lib")
 #   else
-#       pragma comment(lib, "DuiLib_d.lib")
+#       pragma comment(lib, "DuiLib.lib")
 #   endif
 #else
 #   ifdef _UNICODE
-#       pragma comment(lib, "DuiLib_u.lib")
+#       pragma comment(lib, "DuiLib.lib")
 #   else
 #       pragma comment(lib, "DuiLib.lib")
 #   endif

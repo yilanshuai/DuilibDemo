@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Window sizebox="0,0,0,0" caption="0,0,0,35" size="1500,900">
+	<Font id="0" name="微软雅黑" size="14"/>
+	<VerticalLayout bkcolor="#FFFFFFFF">
+		<HorizontalLayout name="system" pos="0,0,0,35" bkimage="Images\bg-header.png" visible="true">
+			<Control />
+			<!-- <Button name="btn_minimize" pos="0,0,24,24" padding="4,4,4,4" tooltip="最小化" font="0" normalimage="file='Images\minus-black.png' source='0,32,32,64'   dest='8,8,20,20' fade=''" hotimage="file='Images\Buttons.png' source='0,64,32,96' dest='8,8,20,20' fade=''"   pushedimage="file='Images\Buttons.png' source='0,64,32,96' dest='8,8,20,20' fade=''"   disabledimage="file='Images\Buttons.png' source='0,96,32,128' dest='8,8,20,20' fade=''"/>-->
+			
+			<Button name="btn_minimize" pos="0,0,12,12" width="12" height="12" padding="9,11,9,9" tooltip="最小化"   font="0" normalimage="file='Images\minus-black.png'" />
+			<Button name="maxbtn" visible="fasle" pos="0,0,12,12" width="12" height="12" padding="9,11,9,9" tooltip="最大化"   font="0" normalimage="file='Images\maxbtn.png'" />
+			<Button name="restorebtn" pos="0,0,12,12" width="12" height="12" padding="9,11,9,9" tooltip="还原"   font="0" normalimage="file='Images\restorebtn.png'" />
+			<Button name="btn_close" pos="0,0,12,12" width="12" height="12" padding="9,11,9,9" tooltip="关闭"   font="0" normalimage="file='Images\close.png'" />
+
+		</HorizontalLayout>
+		<TabLayout name="ContentView" />
+	</VerticalLayout >
+</Window>
+

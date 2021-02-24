@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="360,200" caption="0,0,0,32" >
+  <Font id="0" name="微软雅黑" size="14"/>
+  <Font id="1" name="微软雅黑" size="21"/>
+  <Font id="2" name="微软雅黑" size="16"/>
+  <Font id="3" name="微软雅黑" size="24"/>
+  <Font id="4" name="微软雅黑" size="18"/>
+  <Font id="5" name="微软雅黑" size="27"/>
+  <Font id="6" name="微软雅黑" size="12"/>
+  <Font id="7" name="微软雅黑" size="18"/>
+<VerticalLayout name="MainDialog" > 
+ <HorizontalLayout name="top_hlayout">
+	<Label name="prompt_label" text="请选择使用的证书" align="center" />
+	<List name="listdemo" >
+	  <ListHeader name="domain" bkimage="List/list_header_bg.png">
+        <ListHeaderItem name="cert_name" text="证书名称" align="center" sepimage="List/list_header_sep.png"/>
+        <ListHeaderItem name="cert_issuer" text="发布人" align="center" sepimage="List/list_header_sep.png"/>
+      </ListHeader>
+	</List>
+	</HorizontalLayout>
+	<HorizontalLayout name="bottom_hlayout" bkcolor="FFcdcdcd">
+	  <Button name="findBtn" text="查看证书" textcolor="#FFFFFFFF" bkcolor="#FF8F8F8F" hottextcolor="#FF2E2E2E" pushedtextcolor="#FF2E2E2E" />
+	  <Button name="sureBtn" text="确定" textcolor="#FFFFFFFF" bkcolor="#FF8F8F8F" hottextcolor="#FF2E2E2E" pushedtextcolor="#FF2E2E2E"/>
+    <Button name="cancleBtn" text="取消" textcolor="#FFFFFFFF" bkcolor="#FF8F8F8F"  hottextcolor="#FF2E2E2E" pushedtextcolor="#FF2E2E2E"/>
+	</HorizontalLayout>
+	
+</VerticalLayout>
+</Window>

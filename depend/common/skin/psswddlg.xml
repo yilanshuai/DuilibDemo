@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="300,148" caption="0,0,0,32" mininfo="300,140" maxinfo="300,140" roundcorner="5,5">
+  <Font id="0" name="微软雅黑" size="14"/>
+  <Font id="1" name="微软雅黑" size="21"/>
+  <Font id="2" name="微软雅黑" size="16"/>
+  <Font id="3" name="微软雅黑" size="24"/>
+  <Font id="4" name="微软雅黑" size="18"/>
+  <Font id="5" name="微软雅黑" size="27"/>
+  <Font id="6" name="微软雅黑" size="12"/>
+  <Font id="7" name="微软雅黑" size="18"/>
+    <VerticalLayout name="MainDialog" >
+	<HorizontalLayout name="top_hlayout" >
+		<Container />
+		<Label name="psswd_label" text="密码验证" align="center" />
+		<Container />
+	</HorizontalLayout>
+	<HorizontalLayout name="please_hlayout" bkcolor="FFFCFCFC" >
+		<Container />
+		<Label name="please_label" text="请输入密码:" />
+		<Container />
+	</HorizontalLayout>
+	<HorizontalLayout name="edit_hlayout" bkcolor="FFFCFCFC" >
+		<Container />
+		<Edit name="editPsswd" password="true" />
+		<Container />
+	</HorizontalLayout>
+	
+	<HorizontalLayout name="btn_hlayout"  >
+		<Container />
+		<Button name="btnYes" text="确定"  textcolor="#FFFFFFFF" bkcolor="#FF8F8F8F" hottextcolor="#FF2E2E2E" pushedtextcolor="#FF2E2E2E"/>
+		
+		<Button name="btnNo" text="取消" textcolor="#FFFFFFFF" bkcolor="#FF8F8F8F" hottextcolor="#FF2E2E2E" pushedtextcolor="#FF2E2E2E"/>
+		<Container />
+	</HorizontalLayout>
+
+    </VerticalLayout>
+</Window>
