@@ -9,6 +9,9 @@
 #include <XBrowser/UICEFBrowser.h>
 #include <XBrowser/UIMIEBrowser.h>
 
+//#include "PopWnd.h"
+//#include "TopWnd.h"
+
 #include "duilib/UIlib.h"
 #include "include/cef_app.h"
 
@@ -29,13 +32,13 @@ public:
 	virtual CDuiString GetSkinFolder() { return _T(""); }
 	virtual void InitWindow()
 	{
-		m_CEFBrowser = new XBrowser::CCEFBrowserUI(GetHWND(), this);
+		m_CEFBrowser1 = new XBrowser::CCEFBrowserUI(GetHWND(), this);
 
 		CHorizontalLayoutUI* tabstrip1 = static_cast<CHorizontalLayoutUI*>(m_PaintManager.FindControl(_T("Tabstrip1")));
 		m_CurrentTabStrip = tabstrip1;
 
 		m_ContentView1 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("ContentView1")));
-		m_ContentView1->Add(m_CEFBrowser);
+		m_ContentView1->Add(m_CEFBrowser1);
 	}
 
 	virtual void Notify(TNotifyUI& msg)
@@ -88,14 +91,16 @@ public:
 				CHorizontalLayoutUI* tabstrip1 = static_cast<CHorizontalLayoutUI*>(m_PaintManager.FindControl(_T("Tabstrip1")));
 				m_CurrentTabStrip = tabstrip1;
 
+				m_CEFBrowser1 = new XBrowser::CCEFBrowserUI(GetHWND(), this);
+				//m_ContentView1 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("ContentView1")));
+				m_ContentView1->Add(m_CEFBrowser1);
+
 				//查找当前页所在ContentView
 				CTabLayoutUI* m_ContentView = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("Content")));
 				CTabLayoutUI* m_ContentView1 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("ContentView1")));
 				m_ContentView->SelectItem(m_ContentView1);	
 
-				m_CEFBrowser = new XBrowser::CCEFBrowserUI(GetHWND(), this);
-				//m_ContentView1 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("ContentView1")));
-				m_ContentView1->Add(m_CEFBrowser);
+				
 			}
 			else if (sCtrlName == _T("personinfoBtn"))
 			{
@@ -106,14 +111,15 @@ public:
 				CHorizontalLayoutUI* tabstrip2 = static_cast<CHorizontalLayoutUI*>(m_PaintManager.FindControl(_T("Tabstrip2")));
 				m_CurrentTabStrip = tabstrip2;
 
+				m_CEFBrowser2 = new XBrowser::CCEFBrowserUI(GetHWND(), this);
+				m_ContentView2 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("ContentView2")));
+				//m_ContentView2 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("m_ContentView2")));
+				m_ContentView2->Add(m_CEFBrowser2);
+
 				CTabLayoutUI* m_ContentView = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("Content")));
-				CTabLayoutUI* m_ContentView2 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("ContentView2")));
+				
 				m_ContentView->SelectItem(m_ContentView2);
 
-				m_CEFBrowser = new XBrowser::CCEFBrowserUI(GetHWND(), this);
-				//m_ContentView2 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("m_ContentView2")));
-				m_ContentView2->Add(m_CEFBrowser);
-				
 			}
 			else if (sCtrlName == _T("modifypasswordBtn"))
 			{
@@ -124,13 +130,14 @@ public:
 				CHorizontalLayoutUI* tabstrip3 = static_cast<CHorizontalLayoutUI*>(m_PaintManager.FindControl(_T("Tabstrip3")));
 				m_CurrentTabStrip = tabstrip3;
 
+				m_CEFBrowser3 = new XBrowser::CCEFBrowserUI(GetHWND(), this);
+				m_ContentView3 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("ContentView3")));
+				//m_ContentView3 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("m_ContentView3")));
+				m_ContentView3->Add(m_CEFBrowser3);
 				CTabLayoutUI* m_ContentView = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("Content")));
-				CTabLayoutUI* m_ContentView3 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("ContentView3")));
+				
 				m_ContentView->SelectItem(m_ContentView3);
 
-				m_CEFBrowser = new XBrowser::CCEFBrowserUI(GetHWND(), this);
-				//m_ContentView3 = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("m_ContentView3")));
-				m_ContentView3->Add(m_CEFBrowser);
 			}
 			else if (sCtrlName == _T("NewTabButton"))
 			{
@@ -161,9 +168,9 @@ public:
 				bundle->closeButton = close;
 				bundle->TabButton = option;
 				bundle->tab = pTab;
-				bundle->browserId = m_CEFBrowser->NewPage(L"http://www.baidu.com");
+				bundle->browserId = m_CEFBrowser1->NewPage(L"http://www.baidu.com");
 				bundleList.push_back(bundle);
-				m_CEFBrowser->ShowPage(bundle->browserId);
+				m_CEFBrowser1->ShowPage(bundle->browserId);
 			}
 		}
 	}
@@ -180,7 +187,11 @@ public:
 		int nBrowserId = browser->GetIdentifier();
 		for (BrowserBundle* b : bundleList)
 		{
-			b->TabButton->SetText(title.c_str());
+			//将自己bundle中维护的browserid与CEF传回的browserid比较
+			if (b->browserId == nBrowserId)
+			{
+				b->TabButton->SetText(title.c_str());
+			}		
 		}
 	}
 	void OnSetFullscreen(CefRefPtr<CefBrowser> browser, bool fullscreen) {
@@ -213,7 +224,7 @@ public:
 		//MessageBoxW(NULL, L"OnProcessMessageReceived", L"title", MB_OK);
 	}
 	void OnPopupCreated(CefRefPtr<CefBrowser> browser) {
-		//MessageBoxW(NULL, L"OnPopupCreated", L"title", MB_OK);
+		
 	};
 
 	std::wstring GetUniqueid()
@@ -245,8 +256,8 @@ void SelectTab(std::wstring id)
 		BrowserBundle* bundle = *it;
 		if (bundle->id == id)
 		{
-			m_CEFBrowser->ShowPage(bundle->browserId);
-			m_ContentView1->SelectItem(m_CEFBrowser);
+			m_CEFBrowser1->ShowPage(bundle->browserId);
+			m_ContentView1->SelectItem(m_CEFBrowser1);
 
 		}
 	}
@@ -261,6 +272,7 @@ void CloseTab(std::wstring id)
 		if (bundle->id == id)
 		{
 			static_cast<CContainerUI*>(bundle->tab->GetParent())->Remove(bundle->tab, true);
+			//m_CEFBrowser->DelPage();
 			break;
 		}
 	}
@@ -300,9 +312,13 @@ struct BrowserBundle
 
 private:
 	CHorizontalLayoutUI* m_CurrentTabStrip;
-	XBrowser::CCEFBrowserUI* m_CEFBrowser;
+	XBrowser::CCEFBrowserUI* m_CEFBrowser1;
+	XBrowser::CCEFBrowserUI* m_CEFBrowser2;
+	XBrowser::CCEFBrowserUI* m_CEFBrowser3;
 protected:
 	CTabLayoutUI*  m_ContentView1;
+	CTabLayoutUI*  m_ContentView2;
+	CTabLayoutUI*  m_ContentView3;
 };
 
 
